@@ -6,6 +6,9 @@ AWS does not publish these Lambda Layers as public containers, so we have to pul
 
 DockerHub: https://hub.docker.com/r/nvsec/aws-otel-python/tags
 
+> [!NOTE]
+> For open source viewers: This is a quick adaptation that we needed to make at NightVision and thought could be useful to others. We do not intend on maintaining this; please fork it for yourself if you need to make changes.
+
 # Building
 
 * To build and push this image to DockerHub, do this in a single command:
@@ -37,6 +40,10 @@ FROM nvsec/aws-otel-python:1-21-0 AS lambda-layer-opentelemetry
 # This is where you build your actual Lambda container
 FROM public.ecr.aws/lambda/python:3.11 as build
 # Then, copy the contents of the layer into your Lambda container.
-COPY --from=lambda-layer /opt/ /opt/
+COPY --from=lambda-layer-opentelemetry /opt/ /opt/
 # Then, copy the rest of your Lambda code and proceed as normal.
 ```
+
+# References
+
+* AWS Blog on working with Lambda Layers in Container Images: https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/
