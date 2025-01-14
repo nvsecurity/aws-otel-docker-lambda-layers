@@ -1,5 +1,5 @@
 # Set the version as an environment variable
-VERSION ?= 1-21-0
+VERSION ?= 1-25-0
 
 # Set the URL command
 URL_CMD=$(shell aws lambda get-layer-version-by-arn --arn arn:aws:lambda:us-east-1:901920570463:layer:aws-otel-python-amd64-ver-${VERSION}:1 --query Content.Location --output text)
