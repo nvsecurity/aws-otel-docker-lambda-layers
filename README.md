@@ -2,7 +2,7 @@
 
 Docker images that contain the /opt/ contents of the AWS OpenTelemetry Lambda Layers. 
 
-AWS does not publish these Lambda Layers as public containers, so we have to pull the container contents and create them as containers ourselves so our Lambda containers can consume them.
+AWS does not publish these Lambda Layers as public containers, so we have to pull the layer contents and create them as containers ourselves so our Lambda containers can consume them.
 
 DockerHub: https://hub.docker.com/r/nvsec/aws-otel-python/tags
 
