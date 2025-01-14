@@ -14,13 +14,13 @@ DockerHub: https://hub.docker.com/r/nvsec/aws-otel-python/tags
 * To build and push this image to DockerHub, do this in a single command:
 
 ```bash
-make
+make all
 ```
 
 The longer form command (feel free to adjust)
 
 ```bash
-export VERSION=1-21-0
+export VERSION=1-25-0
 # This pulls the Lambda layer from the official AWS Lambda Layer ARN: https://aws-otel.github.io/docs/getting-started/lambda/lambda-python
 URL=$(aws lambda get-layer-version-by-arn --arn arn:aws:lambda:us-east-1:901920570463:layer:aws-otel-python-amd64-ver-${VERSION}:1 --query Content.Location --output text)
 curl $URL -o aws-otel-python-amd64-ver-${VERSION}.zip
